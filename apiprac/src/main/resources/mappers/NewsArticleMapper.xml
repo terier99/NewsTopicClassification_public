@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.apiprac.dao.NewsArticleAnswerDAO"><!--namespace를 통해 NewsArticleAnswerDAO 연결합니다. -->
+
+    <select id="selectNewsArticleAnswer" parameterType = "com.example.apiprac.dto.NewsArticleAnswerDTO"
+            resultType="com.example.apiprac.dto.NewsArticleAnswerDTO"><!-- selectNewsArticleAnswer()메서드를 호출하면 실행할 SELECT문이며,
+						NewsArticleAnswerDTO 객체를 파라미터로 받아, NewsArticleAnswerDTO 반환합니다.-->
+        SELECT `answer`, `article`
+        FROM article_answer
+<!--        <if test='country != null and country != ""'>&lt;!&ndash; 만약 파라미터에 country가 있다면 SQL문에 WHERE절을 추가합니다. &ndash;&gt;-->
+<!--            WHERE country = #{country}-->
+<!--        </if>-->
+    </select>
+
+</mapper>

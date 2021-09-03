@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>뉴스 기사 분류 모델</title>
+</head>
+<body>
+
+<div>
+  <h3>뉴스 기사 분류 예측! (예측에 시간이 걸립니다)</h3>
+  <form method = "POST" action = '/news-article-classification'>
+    <p>뉴스 기사 : </p>
+    <input type="text" name="article" placeholder="뉴스 기사 내용 입력" style = "width:1200px;height:200px;"/>
+    <p><input type="submit" value="Click" />
+  </form>
+  <h3>예상 1</h3>
+  <p th:text="${newsArticle.prediction1} + ' : ' + ${newsArticle.prediction1_percent} + '%'">Description</p>
+  <h3>예상 2</h3>
+  <p th:text="${newsArticle.prediction2} + ' : ' + ${newsArticle.prediction2_percent} + '%'">Temperature</p>
+  <h3>예상 3</h3>
+  <p th:text="${newsArticle.prediction3} + ' : ' + ${newsArticle.prediction3_percent} + '%'">Temperature</p>
+</div>
+<hr width = "1200px" align = "left">
+<h3>예제!(15분에 한번 씩 최신뉴스로 갱신 됩니다.)</h3>
+
+<div id = "p"></div>
+<script type="text/javascript">
+  async function article_answer_get() {
+    let response = await fetch("http://localhost:8080/article-answer-list");
+    p = document.getElementById("p")
+    if (response.ok) { // HTTP 상태 코드가 200~299일 경우
+      // 응답 몬문을 받습니다(관련 메서드는 아래에서 설명).
+      let json1 = await response.json();
+      for(var i=0;i<json1.length;i++){
+        var newDIV = document.createElement("div");
+        newDIV.innerHTML = json1[i]['answer'] + ' ->  ' + json1[i]['article'] + '<br>'
+        p.appendChild(newDIV);
+      };
+    } else {
+      alert("HTTP-Error: " + response.status);
+    }
+  }
+  article_answer_get()
+
+</script>
+
+</body>
+</html>

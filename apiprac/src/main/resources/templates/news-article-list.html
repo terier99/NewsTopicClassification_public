@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>뉴스 기사 분류 모델</title>
+</head>
+<body>
+
+<div>
+    <table border="1">
+        <tr>
+            <th>answer</th>
+            <th>article</th>
+
+        </tr>
+        <th:block th:each="newsArticleAnswer : ${data}">
+            <tr>
+                <td th:text="${ newsArticleAnswer.answer }"></td>
+                <td th:text="${ newsArticleAnswer.article }"></td>
+            </tr>
+        </th:block>
+    </table>
+
+</div>
+</body>
+</html>

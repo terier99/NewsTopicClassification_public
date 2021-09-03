@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  import:
+    optional:configserver: http://localhost:7070
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://fastcampus.ce2gk6rd6f1j.ap-northeast-2.rds.amazonaws.com/production
+    username: ch
+    password: 13245674s!
+
+mybatis:
+  #type-aliases-package: model 사용 시 매핑할 패키지 경로를 작성합니다.
+  mapper-locations: mappers/*Mapper.xml

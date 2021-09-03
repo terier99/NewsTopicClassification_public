@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Weather</title>
+</head>
+<body>
+
+<div>
+    <h3>뉴스 기사 분류 예측! (예측에 시간이 걸립니다)</h3>
+    <form method = "POST" action = '/current-weather'>
+        <p>뉴스 기사 : <input type="text" name="article" /></p>
+        <p><input type="submit" value="Click" />
+    </form>
+    <h3>예상 1</h3>
+    <p th:text="${currentWeather.description}">Description</p>
+    <h3>예상 1 확률</h3>
+    <p th:text="${currentWeather.temperature} + '%'">Temperature</p>
+    <h3>예상 2</h3>
+    <p th:text="${currentWeather.feelsLike} + '%'">Feels Like</p>
+    <h3>예상 2 확률</h3>
+    <p th:text="${currentWeather.windSpeed} + '%'"></p>
+</div>
+</body>
+</html>
