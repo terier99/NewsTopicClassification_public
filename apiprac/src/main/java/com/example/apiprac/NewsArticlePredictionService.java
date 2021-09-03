@@ -16,7 +16,7 @@ import java.net.URI;
 @Service
 public class NewsArticlePredictionService {
     //private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={apiKey}&units=metric";
-    private static final String PREDICT_URL = "http://localhost:5000/predict?article={article}";
+    private static final String PREDICT_URL = "http://13.125.20.126:5000/predict?article={article}";
 
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
