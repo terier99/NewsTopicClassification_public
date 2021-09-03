@@ -27,7 +27,7 @@
 <div id = "p"></div>
 <script type="text/javascript">
   async function article_answer_get() {
-    let response = await fetch("http://localhost:8080/article-answer-list");
+    let response = await fetch("http://13.125.20.126:8080/article-answer-list");
     p = document.getElementById("p")
     if (response.ok) { // HTTP 상태 코드가 200~299일 경우
       // 응답 몬문을 받습니다(관련 메서드는 아래에서 설명).
